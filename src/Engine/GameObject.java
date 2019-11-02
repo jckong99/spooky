@@ -3,6 +3,9 @@ package Engine;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+
+import Game.Main;
+
 import java.awt.geom.AffineTransform;
 public class GameObject {
 

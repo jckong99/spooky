@@ -6,7 +6,6 @@ import Engine.Component;
 import Engine.FlagMain;
 import Engine.GameObject;
 import Engine.InputHandler;
-import Engine.Main;
 
 public class CameraControl extends Component{
 

@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 
 import Engine.Component;
 import Engine.GameObject;
-import Engine.Main;
 import Engine.ResourceNotFound;
 
 public class Planet extends Component {
@@ -17,7 +16,8 @@ public class Planet extends Component {
 		try
         { 
 			PI = (BufferedImage) (Main.grid.assets.getImage(Name, 0));
-			super.parent.position.setSize(PI.getWidth(), PI.getHeight());
+			parent.position.setSize(PI.getWidth(), PI.getHeight());
+			 
         } catch (ResourceNotFound e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);

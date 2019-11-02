@@ -5,6 +5,8 @@ import java.awt.geom.NoninvertibleTransformException;
 import java.io.EOFException;
 import java.util.ArrayList;
 
+import Game.Main;
+
 public class Position {
 	
 	GameObject Parent;

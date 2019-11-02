@@ -3,11 +3,7 @@ package Game;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import Engine.Component;
-import Engine.FlagMain;
-import Engine.GameObject;
-import Engine.InputHandler;
-import Game.*;
+import Engine.*;
 
 public class Main {
 
@@ -28,7 +24,22 @@ public class Main {
 		testPlayer.addGraphicsComponent(controller);
 		testPlayer.addLogicComponent(controller);
 		
+		testPlayer.addLogicComponent(new CollisionComponent(testPlayer,64,64));
+		//testPlayer.addLogicComponent(new PhysicsComponent(testPlayer));
 		
+		GameObject ground;
+		Component tileComp;
+		for(int i = 0; i < 1 ; i++) {
+			ground = new GameObject(null);
+
+			tileComp = new TileComponent(ground,i*32,0);
+			ground.addGraphicsComponent(tileComp);
+			
+			ground.addLogicComponent(new CollisionComponent(testPlayer,64,64));
+			ground.addLogicComponent(new PhysicsComponent(testPlayer));
+			
+		}
+				
 		
 		//FlagMain.Camera = testPlayer.position;
 		

@@ -2,15 +2,18 @@ package Game;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 import Engine.*;
 
 public class PlayerController extends Component {
     
+	float catSpeed = 10;
+	
     public PlayerController(GameObject gameObject, String name) {
         super(gameObject);
-        parent.position.Scale(16, 16);
-        parent.position.Translate(800, 800);
+        parent.position.Scale(8, 8);
+        parent.position.Translate(900, 900);
     }
 
     @Override
@@ -29,8 +32,12 @@ public class PlayerController extends Component {
 
     @Override
     public void logic() {
-        parent.position.Translate(1, 1);
-        System.out.println(parent.position.getX() + "   " + parent.position.getY());
+        
+    	if(FlagMain.inputs.pending.contains(KeyEvent.VK_D))
+    		parent.position.Translate(catSpeed, 0);
+    	if(FlagMain.inputs.pending.contains(KeyEvent.VK_A))
+    		parent.position.Translate(-catSpeed , 0);
+        //System.out.println(parent.position.getX() + "   " + parent.position.getY());
         
         
     }

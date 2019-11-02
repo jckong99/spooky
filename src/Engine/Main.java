@@ -13,12 +13,16 @@ public class Main {
 	public static ArrayList<GameObject> elements = new ArrayList<GameObject>();
 	public static int fraimes = 0;
 	
-	
 	public static void main(String[] args) throws InterruptedException {
 		
-		grid  = new FlagMain(size, 2, 3, "Solar-System", "Assets//");
+		grid  = new FlagMain(size, 2, 2, "Spooky", "Assets//");
 		
+		GameObject testPlayer = new GameObject(null);
+		Component controller = new PlayerController(testPlayer, "Cat");
+		testPlayer.addGraphicsComponent(controller);
+		testPlayer.addLogicComponent(controller);
 		
+		//FlagMain.Camera = testPlayer.position;
 		
 		grid.start();
 		

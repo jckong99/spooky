@@ -84,7 +84,7 @@ public class FlagMain extends Canvas implements Runnable  {
 		this.runing = true;
 		
 		new Thread(this).start();
-		logicLoop();
+		//logicLoop();
 	}
 	
 	public synchronized void stop() {
@@ -95,7 +95,38 @@ public class FlagMain extends Canvas implements Runnable  {
 	
 	@Override
 	public void run() {
+		long now = System.nanoTime();
+		long lasttime = System.nanoTime();
+		long LT = System.nanoTime();
+		double nsPL = 1000000000D/ runSpeed;
+		
+		double delta = 0;
+		
 		while(this.runing) {
+			now = System.nanoTime();
+			delta += (now - lasttime) / nsPL;
+			lasttime = now;
+			
+			
+			
+			//Logic set to perform only 60 times per second
+			if(delta >= 1) {
+				LCount++;
+				logic();
+				delta -=1;
+				render = true;
+			}
+			
+			//Graphics update free to use all available resources. 
+			if(System.nanoTime() - LT >= 1000000000) {
+				
+				LT += 1000000000;
+				System.out.println("FPS: " + FCount +" LPS: " + LCount);
+				LCount = 0;
+				FCount = 0;
+			}
+			
+			
 			Frame.requestFocusInWindow();
 			tempElements = new ArrayList<GameObject>(elements);
 			boolean render = true;
@@ -124,7 +155,7 @@ public class FlagMain extends Canvas implements Runnable  {
 	
 	
 	public void logicLoop() {
-		long now = System.nanoTime();
+		/*long now = System.nanoTime();
 		long lasttime = System.nanoTime();
 		long LT = System.nanoTime();
 		double nsPL = 1000000000D/ runSpeed;
@@ -155,7 +186,7 @@ public class FlagMain extends Canvas implements Runnable  {
 			}
 			
 			
-		}
+		}*/
 	}
 	
 	public void logic() {

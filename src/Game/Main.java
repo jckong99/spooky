@@ -1,4 +1,4 @@
-	package Game;
+package Game;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +20,7 @@ public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		grid  = new FlagMain(size, 2, 3, "Solar-System", "Assets//");
+		grid  = new FlagMain(size, 2, 3, "Spooky", "Assets//");
 		
 		
 		GameObject testPlayer = new GameObject(null);
@@ -30,7 +30,7 @@ public class Main {
 		
 		
 		
-		FlagMain.Camera = testPlayer.position;
+		//FlagMain.Camera = testPlayer.position;
 		
 		
 		grid.start();

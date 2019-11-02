@@ -10,7 +10,7 @@ public class PlayerController extends Component {
     public PlayerController(GameObject gameObject, String name) {
         super(gameObject);
         parent.position.Scale(16, 16);
-        parent.position.SetPosition(0, 0);
+        parent.position.Translate(800, 800);
     }
 
     @Override
@@ -31,6 +31,8 @@ public class PlayerController extends Component {
     public void logic() {
         parent.position.Translate(1, 1);
         System.out.println(parent.position.getX() + "   " + parent.position.getY());
+        
+        
     }
     
 }
